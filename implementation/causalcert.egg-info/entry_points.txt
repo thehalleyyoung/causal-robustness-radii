@@ -1,0 +1,2 @@
+[console_scripts]
+causalcert = causalcert.pipeline.cli:main
