@@ -1,0 +1,1 @@
+{"weakness": "unit scaling leaves measurement-origin conditioning", "intervention": "matched location offsets; independent centered covariance oracle", "initial_result": "1e8 arm passes", "heldout_result": "1e14 arm12 false rank failures repaired", "limits": "quantized float input,finite tests; causal comparison remains missing", "cost": 0}

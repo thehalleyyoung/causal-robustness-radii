@@ -1,0 +1,1 @@
+{"baseline_commit": "72610a11826ea9f07db4315e9ab79e109df4932f", "plan": "plans/location-invariance.md", "result": "summary.json", "change": "center before scale; map covariance back", "scope": "numerical predicate repair; no closest-method advantage", "new_paid_usd": 0}

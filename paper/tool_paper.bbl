@@ -1,0 +1,215 @@
+\begin{thebibliography}{29}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ankan et~al.(2021)Ankan, Wortel, and Textor]{ankan2021}
+Ankur Ankan, Inge M.~N. Wortel, and Johannes Textor.
+\newblock Testing graphical causal models using the {R} package ``dagitty''.
+\newblock \emph{Current Protocols}, 1\penalty0 (2):\penalty0 e45, 2021.
+\newblock \doi{10.1002/cpz1.45}.
+
+\bibitem[Becker and Kohavi(1996)]{becker1996adult}
+Barry Becker and Ronny Kohavi.
+\newblock Adult.
+\newblock UCI Machine Learning Repository, 1996.
+
+\bibitem[Broderick et~al.(2020)Broderick, Giordano, and Meager]{broderick2020}
+Tamara Broderick, Ryan Giordano, and Rachael Meager.
+\newblock An automatic finite-sample robustness metric: When can dropping a
+  little data make a big difference?
+\newblock \emph{arXiv preprint arXiv:2011.14999}, 2020.
+
+\bibitem[Cinelli and Hazlett(2020)]{cinelli2020}
+Carlos Cinelli and Chad Hazlett.
+\newblock Making sense of sensitivity: Extending omitted variable bias.
+\newblock \emph{Journal of the Royal Statistical Society Series B}, 82\penalty0
+  (1):\penalty0 39--67, 2020.
+\newblock \doi{10.1111/rssb.12348}.
+
+\bibitem[Cohen et~al.(2019)Cohen, Rosenfeld, and Kolter]{cohen2019}
+Jeremy Cohen, Elan Rosenfeld, and J.~Zico Kolter.
+\newblock Certified adversarial robustness via randomized smoothing.
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning (ICML)}, pages 1310--1320, 2019.
+\newblock arXiv:1902.02918.
+
+\bibitem[Ding and VanderWeele(2016)]{ding2016}
+Peng Ding and Tyler~J. VanderWeele.
+\newblock Sensitivity analysis without assumptions.
+\newblock \emph{Epidemiology}, 27\penalty0 (3):\penalty0 368--377, 2016.
+\newblock \doi{10.1097/EDE.0000000000000457}.
+
+\bibitem[Friedman et~al.(1999)Friedman, Goldszmidt, and Wyner]{friedman1999}
+Nir Friedman, Moises Goldszmidt, and Abraham Wyner.
+\newblock Data analysis with {B}ayesian networks: A bootstrap approach.
+\newblock In \emph{Proceedings of the 15th Conference on Uncertainty in
+  Artificial Intelligence (UAI)}, pages 196--205, 1999.
+
+\bibitem[Henckel et~al.(2022)Henckel, Perkovi{\'c}, and Maathuis]{henckel2022}
+Leonard Henckel, Emilija Perkovi{\'c}, and Marloes~H. Maathuis.
+\newblock Graphical criteria for efficient total effect estimation via
+  adjustment in causal linear models.
+\newblock \emph{Journal of the Royal Statistical Society Series B}, 84\penalty0
+  (2):\penalty0 579--599, 2022.
+\newblock \doi{10.1111/rssb.12451}.
+
+\bibitem[Henckel et~al.(2024)Henckel, W{\"u}rtzen, and Weichwald]{henckel2024}
+Leonard Henckel, Theo W{\"u}rtzen, and Sebastian Weichwald.
+\newblock Adjustment identification distance: A gadjid for causal structure
+  learning.
+\newblock \emph{arXiv preprint arXiv:2402.08616}, 2024.
+
+\bibitem[Maathuis et~al.(2009)Maathuis, Kalisch, and
+  B{\"u}hlmann]{maathuis2009}
+Marloes~H. Maathuis, Markus Kalisch, and Peter B{\"u}hlmann.
+\newblock Estimating high-dimensional intervention effects from observational
+  data.
+\newblock \emph{The Annals of Statistics}, 37\penalty0 (6A), 2009.
+\newblock \doi{10.1214/09-AOS685}.
+
+\bibitem[Masten and Poirier(2020)]{masten2020}
+Matthew~A. Masten and Alexandre Poirier.
+\newblock Inference on breakdown frontiers.
+\newblock \emph{Quantitative Economics}, 11\penalty0 (1):\penalty0 41--111,
+  2020.
+\newblock \doi{10.3982/QE1288}.
+
+\bibitem[Mathur et~al.(2018)Mathur, Ding, Riddell, and VanderWeele]{mathur2018}
+Maya~B. Mathur, Peng Ding, Corinne~A. Riddell, and Tyler~J. VanderWeele.
+\newblock Web site and {R} package for computing {E}-values.
+\newblock \emph{Epidemiology}, 29\penalty0 (5):\penalty0 e45--e47, 2018.
+\newblock \doi{10.1097/EDE.0000000000000864}.
+
+\bibitem[Padh et~al.(2025)Padh, Li, Casolo, and Kilbertus]{padh2025}
+Kirtan Padh, Zhufeng Li, Cecilia Casolo, and Niki Kilbertus.
+\newblock Your assumed {DAG} is wrong and here's how to deal with it.
+\newblock In \emph{Proceedings of the Fourth Conference on Causal Learning and
+  Reasoning}, volume 275 of \emph{Proceedings of Machine Learning Research},
+  pages 1239--1267. PMLR, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v275/padh25a.html}.
+
+\bibitem[Pearl(2009)]{pearl2009}
+Judea Pearl.
+\newblock \emph{Causality: Models, Reasoning, and Inference}.
+\newblock Cambridge University Press, 2nd edition, 2009.
+\newblock \doi{10.1017/CBO9780511803161}.
+
+\bibitem[Perkovi{\'c} et~al.(2018)Perkovi{\'c}, Textor, Kalisch, and
+  Maathuis]{perkovic2018}
+Emilija Perkovi{\'c}, Johannes Textor, Markus Kalisch, and Marloes~H. Maathuis.
+\newblock Complete graphical characterization and construction of adjustment
+  sets in {M}arkov equivalence classes of ancestral graphs.
+\newblock \emph{Journal of Machine Learning Research}, 18\penalty0
+  (220):\penalty0 1--62, 2018.
+
+\bibitem[Peters and B{\"u}hlmann(2015)]{peters2015}
+Jonas Peters and Peter B{\"u}hlmann.
+\newblock Structural intervention distance for evaluating causal graphs.
+\newblock \emph{Neural Computation}, 27\penalty0 (3):\penalty0 771--799, 2015.
+\newblock \doi{10.1162/NECO_a_00708}.
+
+\bibitem[Ramsey and Andrews(2018)]{ramsey2018}
+Joseph Ramsey and Bryan Andrews.
+\newblock {FASK} with interventional knowledge recovers edges from the {S}achs
+  model.
+\newblock \emph{arXiv preprint arXiv:1805.03108}, 2018.
+
+\bibitem[Rosenbaum(2002)]{rosenbaum2002}
+Paul~R. Rosenbaum.
+\newblock \emph{Observational Studies}.
+\newblock Springer Series in Statistics. Springer, 2nd edition, 2002.
+\newblock \doi{10.1007/978-1-4757-3692-2}.
+
+\bibitem[Sachs et~al.(2005)Sachs, Perez, Pe'er, Lauffenburger, and
+  Nolan]{sachs2005}
+Karen Sachs, Omar Perez, Dana Pe'er, Douglas~A. Lauffenburger, and Garry~P.
+  Nolan.
+\newblock Causal protein-signaling networks derived from multiparameter
+  single-cell data.
+\newblock \emph{Science}, 308\penalty0 (5721):\penalty0 523--529, 2005.
+\newblock \doi{10.1126/science.1105809}.
+
+\bibitem[Scutari(2010)]{scutari2010}
+Marco Scutari.
+\newblock Learning {B}ayesian networks with the bnlearn {R} package.
+\newblock \emph{Journal of Statistical Software}, 35\penalty0 (3), 2010.
+\newblock \doi{10.18637/jss.v035.i03}.
+
+\bibitem[Shah and Peters(2020)]{shah2020}
+Rajen~D. Shah and Jonas Peters.
+\newblock The hardness of conditional independence testing and the generalised
+  covariance measure.
+\newblock \emph{The Annals of Statistics}, 48\penalty0 (3), 2020.
+\newblock \doi{10.1214/19-AOS1857}.
+
+\bibitem[Shpitser et~al.(2010)Shpitser, VanderWeele, and Robins]{shpitser2010}
+Ilya Shpitser, Tyler VanderWeele, and James~M. Robins.
+\newblock On the validity of covariate adjustment for estimating causal
+  effects.
+\newblock In \emph{Proceedings of the 26th Conference on Uncertainty in
+  Artificial Intelligence (UAI)}, pages 527--536, 2010.
+
+\bibitem[Su and Henckel(2022)]{su2022}
+Zehao Su and Leonard Henckel.
+\newblock A robustness test for estimating total effects with covariate
+  adjustment.
+\newblock In \emph{Proceedings of the Thirty-Eighth Conference on Uncertainty
+  in Artificial Intelligence}, volume 180 of \emph{Proceedings of Machine
+  Learning Research}, pages 1886--1895, 2022.
+\newblock URL \url{https://proceedings.mlr.press/v180/su22a.html}.
+
+\bibitem[Tennant et~al.(2021)Tennant, Murray, Arnold, Berrie, Fox, Gadd,
+  et~al.]{tennant2021}
+Peter W.~G. Tennant, Eleanor~J. Murray, Kellyn~F. Arnold, Laurie Berrie,
+  Matthew~P. Fox, Sarah~C. Gadd, et~al.
+\newblock Use of directed acyclic graphs ({DAGs}) to identify confounders in
+  applied health research: review and recommendations.
+\newblock \emph{International Journal of Epidemiology}, 50\penalty0
+  (2):\penalty0 620--632, 2021.
+\newblock \doi{10.1093/ije/dyaa213}.
+
+\bibitem[Textor et~al.(2017)Textor, van~der Zander, Gilthorpe, Li{\'s}kiewicz,
+  and Ellison]{textor2017}
+Johannes Textor, Benito van~der Zander, Mark~S. Gilthorpe, Maciej
+  Li{\'s}kiewicz, and George T.~H. Ellison.
+\newblock Robust causal inference using directed acyclic graphs: the {R}
+  package `dagitty'.
+\newblock \emph{International Journal of Epidemiology}, page dyw341, 2017.
+\newblock \doi{10.1093/ije/dyw341}.
+
+\bibitem[van~der Zander et~al.(2019)van~der Zander, Li{\'s}kiewicz, and
+  Textor]{vanderzander2019}
+Benito van~der Zander, Maciej Li{\'s}kiewicz, and Johannes Textor.
+\newblock Separators and adjustment sets in causal graphs: Complete criteria
+  and an algorithmic framework.
+\newblock \emph{Artificial Intelligence}, 270:\penalty0 1--40, 2019.
+\newblock \doi{10.1016/j.artint.2018.12.006}.
+
+\bibitem[VanderWeele and Ding(2017)]{vanderweele2017}
+Tyler~J. VanderWeele and Peng Ding.
+\newblock Sensitivity analysis in observational research: Introducing the
+  {E}-value.
+\newblock \emph{Annals of Internal Medicine}, 167\penalty0 (4):\penalty0
+  268--274, 2017.
+\newblock \doi{10.7326/M16-2607}.
+
+\bibitem[Walsh et~al.(2014)Walsh, Srinathan, McAuley, Mrkobrada, Levine, Ribic,
+  et~al.]{walsh2014}
+Michael Walsh, Sadeesh~K. Srinathan, Daniel~F. McAuley, Marko Mrkobrada, Oren
+  Levine, Christine Ribic, et~al.
+\newblock The statistical significance of randomized controlled trial results
+  is frequently fragile: a case for a fragility index.
+\newblock \emph{Journal of Clinical Epidemiology}, 67\penalty0 (6):\penalty0
+  622--628, 2014.
+\newblock \doi{10.1016/j.jclinepi.2013.10.019}.
+
+\bibitem[Witte et~al.(2020)Witte, Henckel, Maathuis, and Didelez]{witte2020}
+Janine Witte, Leonard Henckel, Marloes~H. Maathuis, and Vanessa Didelez.
+\newblock On efficient adjustment in causal graphs.
+\newblock \emph{Journal of Machine Learning Research}, 21\penalty0
+  (246):\penalty0 1--45, 2020.
+
+\end{thebibliography}

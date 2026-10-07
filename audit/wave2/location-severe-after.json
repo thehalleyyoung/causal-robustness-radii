@@ -1,0 +1,770 @@
+[
+  {
+    "seed": 8200,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.047912265730295,
+      "se": 0.07569810551034688,
+      "ci_low": 1.899546705232102,
+      "ci_high": 2.1962778262284877,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.047912265730294,
+    "centered_se": 0.0756981055103469
+  },
+  {
+    "seed": 8200,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.0478930091750533,
+      "se": 0.07578397556810705,
+      "ci_low": 1.8993591464563002,
+      "ci_high": 2.1964268718938067,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.047893009175055,
+    "centered_se": 0.07578397556810713
+  },
+  {
+    "seed": 8201,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9463762304244192,
+      "se": 0.06984237947989896,
+      "ci_low": 1.8094876820492378,
+      "ci_high": 2.0832647787996006,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9463762304244194,
+    "centered_se": 0.06984237947989894
+  },
+  {
+    "seed": 8201,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9480430161130022,
+      "se": 0.06973740256344521,
+      "ci_low": 1.8113602187132785,
+      "ci_high": 2.0847258135127262,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9480430161130016,
+    "centered_se": 0.06973740256344516
+  },
+  {
+    "seed": 8202,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9201830086472302,
+      "se": 0.08700585752840008,
+      "ci_low": 1.749654661447543,
+      "ci_high": 2.0907113558469175,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9201830086472313,
+    "centered_se": 0.0870058575284001
+  },
+  {
+    "seed": 8202,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.921367753277487,
+      "se": 0.08679184408832712,
+      "ci_low": 1.7512588647125504,
+      "ci_high": 2.0914766418424238,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9213677532774858,
+    "centered_se": 0.0867918440883271
+  },
+  {
+    "seed": 8203,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.1978711789343754,
+      "se": 0.09809667980339414,
+      "ci_low": 2.0056052195167653,
+      "ci_high": 2.3901371383519856,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.197871178934375,
+    "centered_se": 0.09809667980339412
+  },
+  {
+    "seed": 8203,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.197549460740068,
+      "se": 0.09835909581874495,
+      "ci_low": 2.0047691753834034,
+      "ci_high": 2.3903297460967323,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.1975494607400696,
+    "centered_se": 0.098359095818745
+  },
+  {
+    "seed": 8204,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.874800493389798,
+      "se": 0.10137659865848328,
+      "ci_low": 1.6761060111439992,
+      "ci_high": 2.0734949756355965,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.8748004933897984,
+    "centered_se": 0.1013765986584833
+  },
+  {
+    "seed": 8204,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.87573797797582,
+      "se": 0.10097139015010632,
+      "ci_low": 1.6778376898126695,
+      "ci_high": 2.0736382661389707,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.8757379779758194,
+    "centered_se": 0.10097139015010637
+  },
+  {
+    "seed": 8205,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.8581112574593255,
+      "se": 0.13831432948354305,
+      "ci_low": 1.5870201531257746,
+      "ci_high": 2.1292023617928764,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.8581112574593244,
+    "centered_se": 0.13831432948354302
+  },
+  {
+    "seed": 8205,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.8566246619556497,
+      "se": 0.13824381111346715,
+      "ci_low": 1.585671771087696,
+      "ci_high": 2.1275775528236034,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.8566246619556495,
+    "centered_se": 0.13824381111346715
+  },
+  {
+    "seed": 8206,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.114544389674103,
+      "se": 0.0913023701808301,
+      "ci_low": 1.9355950324165323,
+      "ci_high": 2.293493746931674,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.1145443896741023,
+    "centered_se": 0.09130237018083003
+  },
+  {
+    "seed": 8206,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.113649531940337,
+      "se": 0.09135271758449615,
+      "ci_low": 1.9346014955848654,
+      "ci_high": 2.292697568295808,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.113649531940337,
+    "centered_se": 0.09135271758449608
+  },
+  {
+    "seed": 8207,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.0139935543772327,
+      "se": 0.09350173887410708,
+      "ci_low": 1.8307335136921141,
+      "ci_high": 2.1972535950623513,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.0139935543772323,
+    "centered_se": 0.0935017388741071
+  },
+  {
+    "seed": 8207,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.0132856065621656,
+      "se": 0.093574316897743,
+      "ci_low": 1.8298833155646514,
+      "ci_high": 2.1966878975596797,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.0132856065621665,
+    "centered_se": 0.09357431689774297
+  },
+  {
+    "seed": 8208,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.117870686248742,
+      "se": 0.09099477104795041,
+      "ci_low": 1.9395242122132914,
+      "ci_high": 2.296217160284193,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.117870686248744,
+    "centered_se": 0.09099477104795042
+  },
+  {
+    "seed": 8208,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.1162150895037066,
+      "se": 0.09102350617542618,
+      "ci_low": 1.9378122956533121,
+      "ci_high": 2.294617883354101,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.116215089503706,
+    "centered_se": 0.09102350617542614
+  },
+  {
+    "seed": 8209,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.3525956561366077,
+      "se": 0.079474353771034,
+      "ci_low": 2.196828785050786,
+      "ci_high": 2.5083625272224293,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.3525956561366073,
+    "centered_se": 0.07947435377103397
+  },
+  {
+    "seed": 8209,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 2.352763632802701,
+      "se": 0.07934564296789716,
+      "ci_low": 2.1972490302554486,
+      "ci_high": 2.508278235349953,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 2.352763632802703,
+    "centered_se": 0.07934564296789717
+  },
+  {
+    "seed": 8210,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9106260039200813,
+      "se": 0.09264402255913944,
+      "ci_low": 1.7290470563212517,
+      "ci_high": 2.092204951518911,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9106260039200815,
+    "centered_se": 0.09264402255913949
+  },
+  {
+    "seed": 8210,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.911416544287194,
+      "se": 0.09268317257754669,
+      "ci_low": 1.7297608640622921,
+      "ci_high": 2.093072224512096,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.911416544287195,
+    "centered_se": 0.09268317257754682
+  },
+  {
+    "seed": 8211,
+    "offset": 0.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9600797352186787,
+      "se": 0.07424669067132894,
+      "ci_low": 1.814558895531588,
+      "ci_high": 2.1056005749057696,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9600797352186792,
+    "centered_se": 0.07424669067132886
+  },
+  {
+    "seed": 8211,
+    "offset": 100000000000000.0,
+    "baseline": {
+      "status": "ok",
+      "beta": 1.9605347361423304,
+      "se": 0.07452093605614263,
+      "ci_low": 1.8144763853780785,
+      "ci_high": 2.1065930869065825,
+      "rule": "O",
+      "adjustment_set": [
+        0
+      ]
+    },
+    "radius_claim": {
+      "status": "ok",
+      "radius": null,
+      "lower_bound": 2,
+      "upper_bound": null,
+      "max_k": 1,
+      "witness": [],
+      "n_minimal_witnesses": 0,
+      "minimal_witnesses": [],
+      "n_candidates": 6,
+      "n_acyclic": 5,
+      "seconds": 0.0001,
+      "timed_out": false,
+      "predicate_calls": 6
+    },
+    "centered_beta": 1.9605347361423302,
+    "centered_se": 0.07452093605614256
+  }
+]

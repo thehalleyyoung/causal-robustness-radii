@@ -1,0 +1,9 @@
+# Zenodo verdict: NOT_YET
+
+Release worth: **YES, as a scoped research software/evidence checkpoint after independent review**. Exact finite edit search, preserved archival results, raw new numerical controls, a reproduced location-invariance repair, and a compiled manuscript are useful reusable artifacts. Numerical point certificates do not certify causal truth. The site and workflow are locally prepared; no upload, DOI, push, publication or deployment occurred.
+
+Journal readiness: **NOT_YET**. Direct official RoCA and Padh comparisons, independent decision-relevant evidence, remain outstanding. Independent pinned review of this new centering repair passed 39 high-precision fit controls and 256 independently enumerated cut cases, with zero failures. Same Sachs sample/queries and known diagnosis are not fresh validation. No R baseline was rerun; old runtime and 1,397-test results are historical. New focused suite:28 pass, independent 26,064 cut cases:0 failures.
+
+Zenodo deposition now: **NOT_YET**, pending a package license/data redistribution audit of the existing package; independent numerical repair review has passed. This is an evidence gap, not permission requested from the user. Publishable software scope and a journal-ready scientific paper are separate decisions.
+
+New spending:$0; historical Modal upper estimate:$0.1118; historical provider reconciliation remains unavailable. Strongest next falsifier and raw evidence are in audit/wave2/improvement-report.md. Tool manuscript source:paper/tool_paper.tex; sole current publication PDF:tool_paper.pdf. Prior publication PDF was hash-archived outside this repository; third-party literature PDF and extracted text were moved to an external hash-preserved research cache with primary-source URLs. The owned project contains one PDF.

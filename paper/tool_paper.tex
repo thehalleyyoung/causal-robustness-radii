@@ -1,0 +1,180 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\input{tables/macros.tex}
+
+\title{How Many Edge Errors Can an Adjustment-Based Causal Conclusion Survive?\\Exact, Data-Anchored Robustness Radii for DAG Misspecification}
+\author{CausalCert authors}
+\date{Preprint, October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An observational effect estimate obtained by covariate adjustment inherits its validity from the causal DAG used to choose the adjustment set. We study the \emph{claim-preserving robustness radius}: the smallest number of edge additions, deletions or reversals to the analyst's DAG, among graphs in which the treatment remains a cause of the outcome, after which re-deriving the adjustment set and re-estimating on the same data no longer yields a significant effect of the claimed sign. We compute it exactly by exhaustive enumeration of edit sets, caching estimates by adjustment set, and return every minimal witness edit set. The unrestricted radius, which also counts edits that delete the causal path itself, is bounded by the minimum editable directed treatment--outcome edge cut and equals~1 in \BRaOne{} of \BN{} benchmark scenarios; the claim-preserving radius is the informative quantity. In the archived benchmark of \BN{} synthetic scenarios with known misspecification of up to three edges, the claim-preserving radius ranks conclusions that are overturned under the true DAG with AUROC \BRcAUC{} (scenarios where the claimed effect exists), against \BLtAUC{} for \texttt{dagitty} local tests, \BBootAUC{} for bootstrap structure-learning stability, and \BRVAUC{} and \BEvAUC{} for the sensemakr robustness value and the E-value; paired bootstrap intervals separate the radius from local tests and bootstrap stability in this stratum. Over all scenarios, which include conclusions about non-existent effects that the claim-preserving radius does not target, the radius (\BRcAUCall{}) is not separated from local tests (\BLtAUCall{}) or bootstrap stability (\BBootAUCall{}). In the archived Sachs flow-cytometry analysis with its consensus DAG, the minimal witnesses of the two least robust conclusions fall on pairs that local tests or bootstrap structure learning also question; on the UCI Adult data the radius separates conclusions whose identification hinges on one edge from conclusions with equally small robustness values that survive three edits.
+\end{abstract}
+
+\section{Introduction}
+
+Applied causal analyses routinely justify an adjustment set with a hand-drawn directed acyclic graph \citep{pearl2009,tennant2021}. The resulting estimate is only as credible as the graph, and reviewers ask how wrong the DAG could be before the conclusion changes. Existing tools answer neighbouring questions. Sensitivity analyses for unmeasured confounding ask how strong a hidden confounder must be to explain an estimate away \citep{rosenbaum2002,ding2016,vanderweele2017,cinelli2020}. Local tests check the conditional independences a DAG implies \citep{textor2017,ankan2021}. Bootstrap structure learning reports how stable learned edges are \citep{friedman1999,scutari2010}. None of these counts how many structural errors in the stated DAG a particular conclusion tolerates.
+
+We make that count precise and compute it. Fix a dataset, a treatment $x$, an outcome $y$, a deterministic rule that maps a DAG to an adjustment set, and an estimator. The conclusion $C$ is ``the effect of $x$ on $y$ is nonzero with sign $s$'' at level $\alpha$. For an alternative DAG $G'$ we re-derive the adjustment set from $G'$, re-estimate on the same data, and ask whether $C$ still holds. The robustness radius is the minimum edit distance from the analyst's DAG to a DAG under which it does not.
+
+\paragraph{Claim.} The claim-preserving robustness radius is exactly computable for the evaluated finite edit neighbourhoods (up to about a dozen observed variables at three edits). In the archived synthetic benchmark, its ranking improves on the reported comparators for the stratum with an existing causal effect; this does not establish superiority over the closest graph-robustness methods or a guarantee about causal truth.
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item A data-anchored definition of the robustness radius for adjustment-based conclusions, with two variants, and two elementary properties. The first is a certificate (no DAG within distance below the radius changes the conclusion); the second is an upper bound of the unrestricted radius by the minimum editable directed $x$--$y$ edge cut (Section~\ref{sec:approach}). The bound explains why the unrestricted radius is almost always~1 and motivates the claim-preserving variant.
+\item An exact solver that enumerates edit sets in order of size, returns all minimal witnesses, and caches estimates by adjustment set, together with cross-checks against brute-force enumeration of all DAGs on four nodes (Section~\ref{sec:impl}).
+\item A synthetic benchmark of \BN{} scenarios in which the true DAG and the number of edge errors are known, comparing the radius with the R packages \texttt{sensemakr}, \texttt{EValue}, \texttt{dagitty} and \texttt{bnlearn} (Section~\ref{sec:synthetic}).
+\item Case studies on two public datasets with published DAGs: the Sachs et al.\ phosphoprotein data and the UCI Adult data, both with DAGs from \citet{ankan2021} (Section~\ref{sec:real}).
+\end{enumerate}
+
+\section{Related work}
+
+\paragraph{Sensitivity to unmeasured confounding.} Rosenbaum's bounds \citep{rosenbaum2002}, the bounding factor and E-value \citep{ding2016,vanderweele2017,mathur2018}, and the omitted-variable-bias framework with its robustness value $RV$ \citep{cinelli2020} hold the measured structure fixed and ask how strong an additional unmeasured confounder must be. Breakdown frontiers \citep{masten2020} generalise this to the weakest assumptions under which a conclusion holds. These quantities are continuous and calibrated against observed covariates. The radius is discrete and refers to named edges among measured variables; adding a bidirected edge between $x$ and $y$ always breaks adjustment, which is exactly the case these methods quantify. The two analyses answer different questions, and our benchmark shows that their rankings of conclusions differ.
+
+\paragraph{Testing the DAG.} A DAG implies conditional independences that can be tested; \texttt{dagitty}'s \texttt{localTests} reports them one by one \citep{textor2017,ankan2021}. No test has power against all alternatives \citep{shah2020}, a rejected implication does not say whether it matters for a given effect, and an unrejected DAG may still be wrong in effect-relevant ways. The radius is conclusion-specific and does not rely on testing.
+
+\paragraph{Adjustment-based graph robustness.} \citet{su2022} test equality of a query's regression coefficients across adjustment sets valid in a candidate DAG. Their All and Min+ strategies use coefficient disagreement to detect graph misspecification. They analyze the same 853-cell Sachs condition, consensus graph and 36 ancestral queries used here, and reject agreement for PKA$\to$Erk and PKA$\to$Akt. Our PKA$\to$Erk case therefore overlaps an established diagnostic example. The radius instead minimizes a discrete edge-edit distance to failure of a specified fixed-data conclusion; a direct comparison with their RoCA implementation is not included in the evaluation. \citet{padh2025} optimize causal-query bounds over graphs satisfying sure and forbidden edges, using gradient-based graph optimization. Their graph constraints and query bounds differ from our edit-neighbourhood minimum, but they directly address causal inference under graph uncertainty. We do not establish an empirical advantage over either approach.
+
+\paragraph{Structure uncertainty.} Bootstrap model averaging reports edge confidence \citep{friedman1999,scutari2010}. IDA computes the set of effects over a Markov equivalence class \citep{maathuis2009}. Both describe uncertainty about structure learned from data, while the radius starts from the analyst's DAG and searches its edit neighbourhood, which crosses equivalence classes.
+
+\paragraph{Distances between causal graphs.} The structural intervention distance \citep{peters2015} and the adjustment identification distance \citep{henckel2024} count, over all or many treatment--outcome pairs, how often one graph's adjustment sets are invalid in another. They compare two given graphs. The radius fixes one graph and one query and minimises over graphs, using the data to decide whether a change of adjustment set changes the conclusion.
+
+\paragraph{Minimal-change robustness.} The radius belongs to a family of measures that count how much must change to overturn a result. Examples are the fragility index of trials \citep{walsh2014}, the fraction of data whose removal flips a conclusion \citep{broderick2020}, and certified robustness radii for classifiers \citep{cohen2019}. Here the perturbation is structural.
+
+\paragraph{Adjustment theory.} We use the generalized adjustment criterion \citep{shpitser2010,perkovic2018}, its constructive form \citep{vanderzander2019}, and the optimal adjustment set of \citet{henckel2022}; see also \citet{witte2020}.
+
+\section{Approach}\label{sec:approach}
+
+\paragraph{Setting.} Let $G$ be a DAG on observed variables $V$ and, optionally, latent variables $L$ whose edges are fixed (a bidirected edge $a\leftrightarrow b$ is a latent parent of $a$ and $b$). Data $D$ are $n$ i.i.d.\ draws of $V$. The query is $(x,y)$ with $x\in\mathrm{An}_G(y)$.
+
+\paragraph{Adjustment rule.} For a DAG $G'$, let $\mathrm{cn}$ be the nodes on proper causal paths from $x$ to $y$ excluding $x$, $\mathrm{forb}=\mathrm{De}(\mathrm{cn})\cup\{x\}$ and $O(G')=\mathrm{pa}(\mathrm{cn})\setminus\mathrm{forb}$ \citep{henckel2022}. The rule $A(G')$ returns: \emph{no effect} if $x\notin\mathrm{An}_{G'}(y)$; else $O(G')$ if it contains no latent node and is a valid adjustment set; else the canonical set $\mathrm{An}(\{x,y\})\setminus(\mathrm{forb}\cup L\cup\{y\})$ if valid; else \emph{not identified}. Validity is checked by d-separation in the proper back-door graph \citep{vanderzander2019}; when the canonical set is invalid, no valid adjustment set exists \citep{perkovic2018}. In a fully observed DAG $O(G')$ is always valid \citep{henckel2022}.
+
+\paragraph{Estimator and conclusion.} $\hat\beta(Z)$ is the OLS coefficient of $x$ in the regression of $y$ on $x$ and $Z$, with HC3 standard errors and a normal $(1-\alpha)$ interval. Under a linear structural model with valid $Z$ this is the total effect; for a binary outcome it is a risk difference. We center nonintercept design columns when an intercept is present, then rescale columns before solving the regression. We require finite observations, a numerically full-rank regression design, positive residual degrees of freedom and leverage below one. Otherwise the estimate is \emph{not estimable}, and $C$ does not hold. A missing, invalid or nonsignificant baseline receives no positive radius bound. The analyst's conclusion is $C$: $\mathrm{sign}\,\hat\beta(A(G))=s$ and the interval excludes zero. $C$ \emph{holds at} $G'$ if $A(G')$ is a set and its interval lies strictly on the side $s$.
+
+\begin{definition}[Edit distance and radii]
+$d(G,G')$ is the number of unordered pairs of observed nodes whose state (absent, $u\to v$, $v\to u$) differs. The \emph{unrestricted radius} is $r(G)=\min\{d(G,G') : G' \text{ a DAG},\ C \text{ fails at } G'\}$. The \emph{claim-preserving radius} $r_c(G)$ takes the same minimum over DAGs with $x\in\mathrm{An}_{G'}(y)$.
+\end{definition}
+
+Since one edit is one addition, deletion or reversal, $d$ is the minimum number of such operations between the graphs. The claim-preserving variant asks how many errors in the confounding and mediation structure the conclusion survives, given that $x$ does affect $y$; the unrestricted variant also counts errors in the claim itself.
+
+\begin{proposition}[Certificate]
+If $r_c(G)>k$, then $C$ holds at every DAG $G'$ with $d(G,G')\le k$ and $x\in\mathrm{An}_{G'}(y)$. If $r(G)>k$, it holds at every DAG within distance $k$.
+\end{proposition}
+This is immediate from the definitions; its force comes from computing the radius exactly. In particular, if the true DAG differs from the analyst's in at most $k<r_c(G)$ pairs and the effect exists, the conclusion obtained under the true DAG, with the same rule and data, is the analyst's conclusion.
+
+\begin{proposition}[Cut bound]
+Let $\lambda(x,y)$ be the minimum number of editable observed--observed edges whose removal from $G$ leaves no directed path from $x$ to $y$. When such a cut exists, $r(G)\le\lambda(x,y)$. If every cut requires a fixed latent edge, no finite cut bound is reported.
+\end{proposition}
+\begin{proof}
+Deleting a minimum cut gives a subgraph of $G$, hence a DAG, at distance $\lambda(x,y)$ in which $x\notin\mathrm{An}(y)$; $A$ returns \emph{no effect} and $C$ fails.
+\end{proof}
+When every edge is editable, Menger's theorem makes $\lambda(x,y)$ the number of edge-disjoint directed paths. Fixed latent edges instead receive effectively infinite capacity. Whenever a single edge carries every causal path, as with a lone direct edge $x\to y$, $r(G)=1$ regardless of the data. This is why we report $r_c$ as the primary quantity and $r$ as a secondary one.
+
+\section{Implementation}\label{sec:impl}
+
+The solver (\texttt{causalcert.radius}, about 600 lines of Python) represents graphs as parent bitmasks. For $k=1,2,\dots,K$ it enumerates every set of $k$ editable pairs and every alternative state of each, skips cyclic graphs, and evaluates $C$; the first $k$ with a failing graph is the radius, and all failing graphs at that $k$ are returned as minimal witnesses. If none is found up to $K$, the result is the certified bound $r>K$. The number of candidates is $\sum_{k\le K}\binom{P}{k}2^k$ for $P=\binom{|V|}{2}$ editable pairs. Because $C$ depends on $G'$ only through $A(G')$, estimates are cached by adjustment set; for the 8-node LaLonde DAG, the 27{,}776 candidate graphs of the claim-preserving search at $K=3$, together with the unrestricted search, required 42 regressions. The largest search in this paper (11 nodes, $K=3$, both variants) took \SachsMaxSec{}~s on a shared laptop CPU.
+
+Correctness is checked by tests that compare the bitset d-separation with \texttt{networkx}, the adjustment sets with an independent implementation of the generalized adjustment criterion, the minimum cut with a max-flow computation, and the radius with brute-force enumeration of all 543 DAGs on four nodes for random data and queries, in both variants. These tests are part of the repository's final suite (1{,}397 pass, 2 are skipped; \texttt{audit/journal/full-tests-final.log}), including tests covering estimability, unit changes, missing baselines and fixed latent-edge cuts. The CausalCert pipeline uses the same search as the exact fallback of its radius step; its default predicate dispatches to AIPW for binary treatments and to the regression estimator above otherwise.
+
+\paragraph{Fresh numerical intervention.} A prospectively specified matched location-change control used 12 independently generated full-rank linear-Gaussian datasets ($n=120$, seeds 8100--8111). At offsets $10^8$, all baseline and claim-radius classes agreed. A separately frozen severity holdout (seeds 8200--8211) translated treatment and nuisance by $+10^{14}$ and $-10^{14}$. Column scaling alone rejected all 12 translated designs as rank deficient, although a centered solve on the identical float inputs was full rank. Centering before scaling restored all 12 baseline and radius classes at $K=1$. Independent statsmodels HC3 on each exact translated input agreed within $2.67\times10^{-15}$ for the treatment coefficient and $1.12\times10^{-16}$ for its standard error. These offsets quantize inputs (spacing 0.015625); this check compares each array to its own centered oracle, not to unavailable exact-real contrasts. Duplicate-treatment and unit-leverage controls continued to refuse inference. An independent exhaustive deletion oracle also agreed with the editable cut on all 26,064 four-node DAG/query/observed-node combinations. Raw inputs are deterministically regenerated from the frozen seeds, scripts and outputs in \texttt{audit/wave2/}. These finite numerical checks neither certify interval arithmetic nor validate causal assumptions. The historical 1,397-test suite was not rerun in this round; the 28 focused radius/estimability tests passed after the location repair.
+
+\section{Evaluation}
+
+We ask three questions. \textbf{RQ1}: what radii do textbook DAGs produce? \textbf{RQ2}: on data with known misspecification, does the radius identify conclusions that the true DAG overturns, compared with existing diagnostics? \textbf{RQ3}: what do the radius and its witnesses say on real data with published DAGs?
+
+\subsection{RQ1: textbook DAGs}\label{sec:published}
+
+We ran the solver on the \PubN{} built-in DAGs of up to 12 nodes (textbook examples and simplified applied DAGs), with 500 draws from a linear-Gaussian model with random weights, $\alpha=0.05$ and $K=3$ (Table~\ref{tab:published}). In \PubOk{} DAGs the baseline estimate was significant. The unrestricted radius was 1 in all of them, including the three DAGs whose cut $\lambda$ is 2 or 3, while $r_c$ ranged from 1 to above 3. For \PubClaimGtThree{} graphs (back-door, M-bias, IV, napkin, LaLonde, sprinkler) no three edits that keep $x$ a cause of $y$ overturn the conclusion; for the confounded-mediator, front-door and chain graphs two are needed; for the diamond and the simplified Sachs and smoking DAGs one suffices.
+
+\begin{table}[t]
+\centering\small
+\caption{Radii on built-in DAGs with synthetic linear-Gaussian data ($n=500$, seed 42, $K=3$). $\hat\beta$: baseline estimate; $\lambda$: minimum directed cut. Source: \texttt{results/published\_sweep.json}.}
+\label{tab:published}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+DAG & $|V|$ & $|E|$ & $\hat\beta$ & $\lambda$ & $r$ & $r_c$ \\
+\midrule
+\csname @@input\endcsname tables/published.tex 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ2: synthetic misspecification benchmark}\label{sec:synthetic}
+
+\paragraph{Design.} Each scenario draws a true DAG $G^\star$ on 6 or 8 nodes (expected degree 2), linear-Gaussian data ($n\in\{200,1000\}$, weights $\pm U(0.3,1)$, unit noise), and an analyst DAG $G$ at distance exactly $d\in\{0,1,2,3\}$ from $G^\star$, and with $x\in\mathrm{An}_G(y)$. In the main regime~B, edits are drawn among pairs that touch $\mathrm{An}_{G^\star}(\{x,y\})$, edges out of $x$ are scaled by $U(0,0.15)$ so that effects are weak relative to confounding, and in 30\% of draws $(x,y)$ is a pair with no causal relation in $G^\star$ that the analyst's graph connects. Regime~A draws edits uniformly from all pairs and uses unscaled weights and only true causal pairs. A scenario is kept if the analyst's estimate is significant; \BN{} scenarios per regime. The generator parameters of regime~B were set in a pilot on a separate random stream to obtain a non-trivial rate of overturned conclusions (\texttt{results/synthetic\_pilot.jsonl}); no diagnostic was computed in the pilot.
+
+\paragraph{Label.} A conclusion is \emph{overturned} if $C$ fails at $G^\star$ when the same adjustment rule and estimator are applied to the same data. This isolates the effect of the DAG error from sampling error. In regime~B, \BPos{} of \BN{} conclusions (\BFlipRate\%) are overturned. They comprise all \BNull{} conclusions about non-existent effects and \BAncPos{} of \BAncN{} (\BAncFlipRate\%) where the effect exists. In regime~A only \APos{} of \AN{} (\AFlipRate\%) are overturned.
+
+\paragraph{Diagnostics.} On $(G,D)$ only: $r_c$ and $r$ at $K=3$ (censored at 4); $\lambda$; \texttt{sensemakr} $RV_{q=1}$ and $RV_{q=1,\alpha=0.05}$ \citep{cinelli2020} for the analyst's regression; the E-value of the confidence limit from \texttt{EValue::evalues.OLS} with a one-standard-deviation contrast \citep{mathur2018}; \texttt{dagitty::localTests} with linear tests, as the number of implications rejected at BH level 0.05 and the minimum $p$-value \citep{textor2017}; and bootstrap conclusion stability, the fraction of 100 \texttt{bnlearn} hill-climbing bootstrap DAGs \citep{scutari2010} under which $C$ holds with our rule and estimator. All R tools were run unmodified under R 4.4.2; package versions are recorded with the results. Each diagnostic is oriented so that a higher score predicts an overturned conclusion, and AUROC is reported with a 95\% bootstrap interval over scenarios.
+
+\begin{table}[t]
+\centering\small
+\caption{AUROC for identifying overturned conclusions, regime B. Left: all \BN{} scenarios (\BPos{} overturned). Right: the \BAncN{} scenarios in which $x$ causes $y$ in the true DAG (\BAncPos{} overturned), the population the claim-preserving radius targets. Values below 0.5 mean the diagnostic ranks overturned conclusions as more robust. Source: \texttt{results/synthetic/summary.json}.}
+\label{tab:auroc}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Diagnostic & all scenarios & true effect exists \\
+\midrule
+\csname @@input\endcsname tables/synthetic_auroc.tex 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Results.} Table~\ref{tab:auroc} reports the main comparison. Among scenarios where the effect exists, $r_c$ reaches AUROC \BRcAUC{}, ahead of the number of local-test rejections (\BLtAUC{}) and bootstrap stability (\BBootAUC{}); paired bootstrap differences over the same resampled scenarios are \BDiffLtAnc{} against local tests and \BDiffBootAnc{} against bootstrap stability. Over all \BN{} scenarios $r_c$ reaches \BRcAUCall{}, against \BLtAUCall{} and \BBootAUCall{}, with paired differences \BDiffLtAll{} and \BDiffBootAll{}; these intervals include zero. \BNullPos{} of the \BPos{} overturned conclusions concern pairs with no causal relation in $G^\star$, which the claim-preserving radius does not see by construction because it only considers graphs in which $x$ causes $y$; the unrestricted radius is the variant that covers them, and it is bounded by the cut. The unrestricted radius and the cut are close to uninformative, as Proposition~2 predicts: $r=1$ in \BRaOne{} of \BN{} scenarios. The robustness value and the E-value rank overturned conclusions as \emph{more} robust (AUROC \BRVAUC{} and \BEvAUC{}). Overturned conclusions have larger $|t|$ than the others (the AUROC of $|t|$ is 0.33), and both measures increase with $|t|$; they quantify robustness to an additional unmeasured confounder and are not designed to detect errors among measured variables. As a consistency check of the exact solver against Proposition~1, every scenario with a true effect and $r_c>d$ (\BCertClaimN{} in regime~B, \ACertClaimN{} in regime~A) and every scenario with $r>d$ (\BCertAllN{} and \ACertAllN{}) kept its conclusion under $G^\star$, as the proposition requires when the search is exact. In regime~B the claim-preserving radius was 1 for \BRcOne{} scenarios, 2 for \BRcTwo{}, 3 for \BRcThree{} and above 3 for \BRcGtThree{}. With only \APos{} overturned conclusions in regime~A, AUROCs there are not informative; when effects are strong, edge errors of this size rarely change an adjustment-based conclusion.
+
+\subsection{RQ3: real data with published DAGs}\label{sec:real}
+
+\paragraph{Sachs et al.} We use the \SachsN{}-cell CD3/CD28 observational condition of \citet{sachs2005} (log intensities) and the \SachsEdges{}-edge consensus DAG of \citet{ankan2021}. Every ordered pair $(x,y)$ with $x\in\mathrm{An}(y)$ is a query (\SachsQ{} in total); \SachsSig{} have a significant baseline estimate (Table~\ref{tab:sachs}). Local tests reject \SachsLtRej{} of \SachsLtN{} implications, all of the form Akt $\perp$ Erk given various sets, and the bootstrap gives the Akt--Erk adjacency strength 1.0. The conclusion PKA$\to$Erk has $r_c=2$, and each of its six minimal witnesses combines an edit of the PKA--Akt pair (whose bootstrap orientation is split 0.61/0.39 against the consensus direction) with a new edge from Akt into the Raf--Mek--Erk chain. PIP3$\to$Plcg also has $r_c=2$; both minimal witnesses reverse Plcg$\to$PIP2, a consensus edge with bootstrap strength 0.09, and delete or reverse PIP3$\to$PIP2, whose bootstrap orientation is split 0.575/0.425. These edits lie in the PIP3--Plcg--PIP2 triangle, which contains the pair whose orientation in the network learned by \citet{sachs2005} was reversed relative to the literature; orientations in the Sachs model are discussed further by \citet{ramsey2018}. The other five conclusions survive any three claim-preserving edits.
+
+\begin{table}[t]
+\centering\small
+\caption{Sachs CD3/CD28 data ($n=\SachsN$), queries with a significant baseline estimate. $RV$: sensemakr $RV_{q=1,\alpha=0.05}$; $E$: E-value of the confidence limit; boot: bootstrap conclusion stability (200 \texttt{bnlearn} replicates). Source: \texttt{results/real/summary.json}.}
+\label{tab:sachs}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Query & $\hat\beta$ & $r_c$ & $r$ & $\lambda$ & $RV$ & $E$ & boot \\
+\midrule
+\csname @@input\endcsname tables/sachs.tex 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{UCI Adult.} We use the \AdultN{} complete rows of the Adult data \citep{becker1996adult} as coarsened by \citet{ankan2021} and their DAG with a bidirected edge Immigrant$\leftrightarrow$Race (Table~\ref{tab:adult}). With this sample size local tests reject \AdultLtRej{} of \AdultLtN{} implications, so falsification alone does not separate conclusions. The radii do. The education, age, marital-status and hours conclusions about Income survive any three claim-preserving edits. All five conclusions with Race or Immigrant as treatment have $r_c=1$. For four of them every minimal witness is a single edit that makes one of Race and Immigrant a descendant of the other, after which the confounding path through Immigrant$\leftrightarrow$Race cannot be blocked and no valid adjustment set exists; Immigrant$\to$HoursPerWeek is overturned by reversing Sex$\to$Education, which turns Sex into a mediator. Sex$\to$Income has $r_c=3$. The robustness values of these six conclusions and of Age$\to$Education are all between 0.01 and 0.06, so the omitted-variable analysis groups them together. The radius separates them: $r_c=1$ for the Race and Immigrant conclusions, $r_c=3$ for Sex$\to$Income and $r_c>3$ for Age$\to$Education.
+
+\begin{table}[t]
+\centering\small
+\caption{UCI Adult ($n=\AdultN$), queries with a significant baseline estimate; columns as in Table~\ref{tab:sachs}. Source: \texttt{results/real/summary.json}.}
+\label{tab:adult}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Query & $\hat\beta$ & $r_c$ & $r$ & $\lambda$ & $RV$ & $E$ & boot \\
+\midrule
+\csname @@input\endcsname tables/adult.tex 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion and limitations}
+
+The radius is a property of a DAG, a dataset, an adjustment rule and an estimator together. Its certificate concerns the specified statistical predicate on fixed data; it is not a guarantee of causal truth, coverage after searching graphs, or numerical interval certification. Reanalysis of every candidate adjustment subset in the 800 archived synthetic scenarios and recorded Sachs and Adult queries found no classification changes across 51{,}872 finite designs after enforcing estimability; archived runtime figures were not remeasured. Our rule uses the optimal adjustment set and a linear estimator, which suits linear or approximately linear data; for other data the same search runs with any estimator that depends on the graph only through the adjustment set, and the cache keeps the cost close to the number of distinct adjustment sets. Exhaustive search limits exact radii to about a dozen observed variables at three edits; larger graphs need restricted edit sets, for example edits within the ancestors of $x$ and $y$, or the bound $r>K$. Edits are directed edges among observed variables; latent structure is held fixed, and adding a latent confounder of $x$ and $y$ is the setting of confounding sensitivity analysis rather than of the radius. The synthetic benchmark covers linear-Gaussian models on 6 to 8 nodes with uniformly random edits; real misspecifications are not uniformly random, and the regime~B parameters were chosen to make overturned conclusions common. The real-data DAGs are published consensus models, not ground truth, so the case studies show that witnesses land on data-questioned pairs but cannot score correctness.
+
+\section{Conclusion}
+
+The claim-preserving robustness radius turns ``how wrong can the DAG be?'' into a number with a certificate and a list of the edit sets that matter. It is cheap to compute exactly at the scale of applied DAGs, it is complementary to confounding sensitivity analysis, and on a benchmark with known errors it identifies overturned conclusions about existing effects better than local tests, bootstrap stability and confounding-strength measures.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

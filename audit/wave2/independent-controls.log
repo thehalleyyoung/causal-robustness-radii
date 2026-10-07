@@ -1,0 +1,10 @@
+{
+  "cut_checks": 26064,
+  "cut_failures": 0,
+  "max_beta_error": 2.6645352591003757e-15,
+  "max_se_error": 1.1102230246251565e-16,
+  "negative_controls": {
+    "duplicated": "Regression design is rank deficient",
+    "unit_leverage": "HC3 is undefined at unit leverage"
+  }
+}

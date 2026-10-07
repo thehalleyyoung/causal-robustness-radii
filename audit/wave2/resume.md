@@ -1,0 +1,1 @@
+Next falsifier: review exact final centering commit independently, then official RoCA All/Min+ comparison on frozen fresh graph-misspecification families and query-level heldout decision outcomes; compatible Padh graph-bound control. No paid exposure; do not replenish or reset canonical $5/$5 caps.

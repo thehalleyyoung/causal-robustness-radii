@@ -1,0 +1,10 @@
+{
+  "scientific_unit": "dataset seed; synthetic numerical intervention",
+  "initial_location_control_passes": 12,
+  "severe_before_false_not_estimable": 12,
+  "severe_after_false_not_estimable": 0,
+  "severe_after_radius_class_matches": 12,
+  "new_paid_usd": 0,
+  "historical_modal_upper_usd": 0.1118,
+  "historical_full_suite_rerun": false
+}

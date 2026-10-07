@@ -1,0 +1,25 @@
+# CausalCert wave-two evidence checkpoint
+
+Outcome: **improved checkpoint; journal gate remains open**. Source HEAD 4a46bb6 plus all owner working changes and integrated repair bce8bb0 were snapshotted before editing. Source checkout unchanged. Parent lane records byte hashes and binary diff; baseline commit records the full source revision. No paid calls, new exposure $0. Historical Modal upper estimate $0.1118; provider reconciliation is still unavailable. No paid baseline or R baseline invented.
+
+The strongest preserved claim is exact finite graph enumeration for a deterministic, floating-point, fixed-data significance predicate. That is a numerical point certificate, not causal truth or a post-search significance guarantee. Main remaining weaknesses: no direct Su/Henckel RoCA or Padh comparison, reused Sachs diagnostic evidence, and no independent scientific decision study demonstrating incremental value.
+
+## Frozen intervention and measured result
+
+[Plan](plans/location-invariance.md) was written before outcomes. Initial synthetic location intervention, seeds 8100–8111, passed all 12 datasets at offsets 1e8. Retained [initial output](location-before.json). Before viewing a second severity stage, froze fresh seeds 8200–8211 and offsets 1e14. All 12 severe arms were falsely not_estimable under maximum-column scaling: [before](location-severe-before.json). Center nonintercept columns before unit scaling, map full coefficient/covariance back including intercept. All 12 severe arms restored a significant baseline and the matched K=1 radius class: [after](location-severe-after.json), [summary](summary.json). At these origins, float inputs are quantized; comparison uses each identical float array, not presumed exact-real contrasts.
+
+An independently written centered statsmodels HC3 check reproduced slopes within 2.665e-15 and SE within 1.111e-16. Duplicate treatment and singleton-indicator leverage controls continue to refuse inference. Brute deletion/reachability of all 543 four-node DAGs, 12 queries and 4 observed-node assignments matched editable minimum cuts in 26,064/26,064 cases: [raw](independent-controls.json). This finite exhaustive check is not a general proof. [28 focused tests](focused-tests.log) passed; the archived 1,397-test complete suite was NOT rerun. Initial missing-numpy harness failure used the wrong interpreter; switched to existing source virtualenv without installing or modifying it. No failed scientific arm suppressed.
+
+## Closest primary work
+
+[Su and Henckel, UAI 2022](https://proceedings.mlr.press/v180/su22a.html): query-specific coefficient agreement across valid adjustment sets, All/Min+ strategies; same 853-cell Sachs sample, consensus DAG, 36 queries and PKA-Erk/PKA-Akt diagnosis. Existing Sachs result supplies overlapping diagnostic evidence, no independent truth labels. [Padh et al., CLeaR 2025](https://proceedings.mlr.press/v275/padh25a.html): causal-query bounds over graphs constrained by prior knowledge, gradient optimization. Different quantity and graph constraints do not establish superiority. Primary publication pages retrieved 2026-10-07. This round's location intervention resolves a numerical vulnerability; it does not close these scientific comparator gaps.
+
+## Practical consequence and next falsifier
+
+A measurement-origin convention alone changed a scientific conclusion from estimable to baseline_fails in a concrete full-rank design. Repair removes that avoidable numerical rejection, with same-input external covariance controls. This is a useful release repair, insufficient for a journal claim of incremental causal value. Next experiment: frozen graph-misspecification families on fresh seeds, direct official RoCA All/Min+ implementation, separately defined selection and heldout query units, paired query-level evaluation and a decision threshold that neither method selects after viewing outcomes. Add graph-bound comparison to Padh on compatible constraints; first distinguish target mismatch from algorithm performance. No superiority claim until completed.
+
+Portable JSON serializes nonfinite unavailable regression values as null; original Python NaN text is retained where present. Build log records the first BibTeX openout restriction failure and corrected temporary-directory invocation.
+
+Third-party Su/Henckel PDF and extracted text are external hash-preserved research cache material, not included in the project or public site. Primary-source citation URLs remain; cache manifest is outside the repo under journal-campaign/pdf-archive/causal/references.
+
+Independent native peer review pinned b256a74 scientific bytes (later source/cache-only followups): 39 fresh fits checked with exact Fraction coefficients and 80-digit HC3, zero failures; 256 observed-only cut checks, zero failures including immutable latent paths. Replayed old72610a1: all12 severe arms not_estimable, versus0/12 repaired. Review stored by parent at journal-campaign/wave2/peer-reviews/bio-reviews-causal. Abstract now explicitly labels archived results; Padh bibliography cites published PMLR275:1239–1267. Journal comparator/consequence gaps persist.

@@ -1,0 +1,11 @@
+{
+  "new_modal_usd": 0,
+  "new_openrouter_usd": 0,
+  "pending_usd": 0,
+  "historical_modal_upper_usd": 0.1118,
+  "historical_openrouter": "source states no paid LLM use; provider reconciliation unavailable",
+  "caps_per_repo_usd": {
+    "modal": 5,
+    "openrouter": 5
+  }
+}

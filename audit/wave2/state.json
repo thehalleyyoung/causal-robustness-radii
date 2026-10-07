@@ -1,0 +1,12 @@
+{
+  "proposal_id": "causal-robustness-radii",
+  "baseline_commit": "72610a11826ea9f07db4315e9ab79e109df4932f",
+  "source_head": "4a46bb6",
+  "canonical_work_directory": "/Users/halley/Documents/repo-upgrades/journal-campaign/wave2/causal/repo",
+  "budget_store": "/Users/halley/Documents/repo-upgrades/journal-campaign/STATE.json",
+  "stage": "improved_checkpoint_independent_numerical_review_passed_scientific_gate_open",
+  "claim_version": "fixed-data-numerical-origin-repair",
+  "next_action": "independent exact-commit review; direct official closest-method matched evaluation",
+  "new_paid_usd": 0,
+  "historical_modal_upper_usd": 0.1118
+}
